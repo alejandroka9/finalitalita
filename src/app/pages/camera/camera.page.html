@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Selfie Camera
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+  <div class="center-content">
+    <img [src]="selfieImage" *ngIf="selfieImage" alt="Selfie">
+    
+    <ion-button (click)=" tomarSelfie()" class="selfie-button">Tomar Selfie</ion-button>
+  </div>
+  <ion-content class="ion-text-center">
+  
+    <ion-card *ngFor="let i of usuarioFiltro">
+      <ion-card-header>
+        Ubicación Actual
+      </ion-card-header>
+      <ion-card-content>
+        Latitud: {{ latitude }}
+        <br>
+        Longitud: {{ longitude }}
+        <br>
+        <h3>{{i.nombre}}</h3>
+        <h3>{{i.apellido}}</h3>
+        <h3>{{i.rut}}</h3>
+        <h3>{{i.regionSel}}</h3>
+        <h3>{{i.comunaSel}}</h3>
+        <p>{{ scannedData | json }}</p>
+
+      </ion-card-content>
+    </ion-card>
+    <ion-button routerLink="/menu" class="selfie-button">Volver</ion-button>
+  </ion-content>
+</ion-content>
